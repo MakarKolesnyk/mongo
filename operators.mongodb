@@ -1,0 +1,12 @@
+use("mongo_1");
+
+// db.movies.find({releaseYear: 1999})
+// db.movies.find({ ratingImdb: { $lt: 8 } });
+// db.movies.find({genres: "Crime"})
+// db.movies.find({ genres: { $in: ["War", "Western"] } });
+// db.movies.find({'director.name': 'Quentin Tarantino'})
+// db.movies.find({
+//   $and: [{ releaseYear: { $gt: 2010 } }, { ratingImdb: { $gte: 8.5 } }],
+// });
+// db.movies.find({ "director.nationality": { $ne: "American" } });
+db.movies.find({ ratingImdb: { $gte: 8.0, $lte: 8.5 } });

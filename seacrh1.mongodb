@@ -1,0 +1,35 @@
+use("mongo_1");
+
+db.games.find({
+  $and: [
+    { genre: "RPG" },
+    { releaseYear: { $gt: 2015 } },
+    { multiplayer: false },
+  ],
+});
+// db.games.find({genre: {$ne: 'RPG'}})
+// db.games.find({ genre: { $ne: { $in: ["RPG", "Action"] } } });
+
+// db.games.find({ country: { $in: ["Ukraine", "France"] } });
+// db.games.find({ genre: { $in: ["RPG", "Survival"] } });
+
+// db.gamers.find({level: {$lte: 20}})
+// db.gamers.find({level: {$gt: 50}})
+// db.gamers.find({ level: { $ne: 50 } });
+// db.gamers.find({ level: { $gte: 30, $lt: 50 } });
+
+// db.games.find({ releaseYear: { $ne: 2019 } });
+// db.games.find({ releaseYear: { $eq: 2019 } });
+// db.games.find({ releaseYear: { $gt: 2015, $lt: 2020 } });
+// db.games.find({ releaseYear: { $gte: 2020 } });
+// db.games.find({ releaseYear: { $lte: 2020 } });
+// db.games.find({ releaseYear: { $gt: 2020 } });
+// db.games.find({platforms: 'Switch'})
+// db.games.find({genre: "RPG"});
+// db.games.find({ genre: "RPG" }, { rereleaseYear: 2020 });
+// db.games.find({ genre: "RPG", rereleaseYear: 2020 });
+// db.games.find({
+// $or: [{genre: "RPG"},{rereleaseYear: 2020},{rereleaseYear: 2020} ]
+// })
+
+// db.games.findOne()

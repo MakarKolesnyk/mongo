@@ -1,0 +1,297 @@
+use("mongo_1");
+
+// db.trips.find({
+//     durationDays: 3
+// });
+// db.trips.find({
+//     durationDays: {$gt: 3}
+// });
+// db.trips.find({rating: {$lt: 4.6}})
+// db.trips.find({isCompleted: true})
+// db.trips.find({ "destination.country": "Italy" });
+// db.trips.find({ "budget.total": { $gte: 2000 } });
+// db.trips.find({tags: {$ne: 'summer'}})
+// db.trips.find({ "places.type": "museum" });
+// db.trips.find({ "travelers.2": { $exists: true } });
+// db.trips.find({ $and: [{ 'budget.total': { $gt: 1500 } }, { rating: { $gt: 4.6 } }] });
+// Знайти всі подорожі, де бюджет більше 1500 і рейтинг більше 4.6
+//Знайти всі подорожі тривалістю 3 дні
+// db.trips.find({ tags: { $in: ["culture", "history"] } });
+// db.trips.find({ travelers: { $elemMatch: { age: { $gt: 40 } } } });
+//Знайти всі подорожі, де є тег "culture" або "history"
+// db.trips.find({ places: { $not: { $elemMatch: { type: "museum" } } } });
+// db.trips.find({ "places.type": { $nin: ["museum"] } });
+// db.trips.find({
+//   "guide.language": "Spanish",
+//   rating: { $gte: 4.6 },
+//   tags: "sea",
+// });
+// db.trips.find({places: {$size: 3}})
+// db.trips.find({'places.2': {$exists: true}})
+// db.trips.find({ "budget.total": { $gte: 1500 }, tags: { $ne: "luxury" } });
+// db.trips.find({
+//   $or: [
+//     { "travelers.name": { $in: ["Olena", "Anna"] } },
+//     // { "travelers.name": "Anna" },
+//     { isCompleted: true, rating: { $lt: 4.7 } },
+//   ],
+// });
+// db.trips.find({ "travelers.name": "Andrii" });
+db.trips.find({})
+
+// "Olena" або "Anna"
+// завершені з ретингом менше 4.7
+// Знайти всі подорожі, де бюджет більше 1500, але немає тегу "luxury"
+// English   >4.8   sea
+// db.trips.insertMany([
+//   {
+//     title: "Weekend in Paris",
+//     destination: { country: "France", city: "Paris" },
+//     durationDays: 3,
+//     guide: { name: "Jean Dupont", experience: 5, language: "French" },
+//     rating: 4.8,
+//     places: [
+//       { name: "Eiffel Tower", type: "landmark" },
+//       { name: "Louvre Museum", type: "museum" },
+//       { name: "Seine River", type: "nature" },
+//     ],
+//     tags: ["summer", "europe", "culture"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Olena", age: 28 },
+//       { name: "Andrii", age: 30 },
+//     ],
+//     budget: { total: 2000, currency: "EUR" },
+//   },
+//   {
+//     title: "Rome Discovery",
+//     destination: { country: "Italy", city: "Rome" },
+//     durationDays: 5,
+//     guide: { name: "Marco Rossi", experience: 8, language: "Italian" },
+//     rating: 4.7,
+//     places: [
+//       { name: "Colosseum", type: "landmark" },
+//       { name: "Vatican Museums", type: "museum" },
+//     ],
+//     tags: ["history", "europe"],
+//     isCompleted: true,
+//     travelers: [{ name: "Ihor", age: 35 }],
+//     budget: { total: 1800, currency: "EUR" },
+//   },
+//   {
+//     title: "Barcelona Vibes",
+//     destination: { country: "Spain", city: "Barcelona" },
+//     durationDays: 4,
+//     guide: { name: "Carlos Vega", experience: 6, language: "Spanish" },
+//     rating: 4.6,
+//     places: [
+//       { name: "Sagrada Familia", type: "landmark" },
+//       { name: "Park Guell", type: "nature" },
+//     ],
+//     tags: ["summer", "sea"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Anna", age: 26 },
+//       { name: "Oleh", age: 29 },
+//     ],
+//     budget: { total: 1500, currency: "EUR" },
+//   },
+//   {
+//     title: "Berlin City Break",
+//     destination: { country: "Germany", city: "Berlin" },
+//     durationDays: 3,
+//     guide: { name: "Hans Muller", experience: 10, language: "German" },
+//     rating: 4.5,
+//     places: [
+//       { name: "Brandenburg Gate", type: "landmark" },
+//       { name: "Berlin Wall", type: "historical" },
+//     ],
+//     tags: ["history", "city"],
+//     isCompleted: true,
+//     travelers: [{ name: "Max", age: 40 }],
+//     budget: { total: 1200, currency: "EUR" },
+//   },
+//   {
+//     title: "Amsterdam Weekend",
+//     destination: { country: "Netherlands", city: "Amsterdam" },
+//     durationDays: 3,
+//     guide: { name: "Eva Jansen", experience: 4, language: "Dutch" },
+//     rating: 4.4,
+//     places: [
+//       { name: "Van Gogh Museum", type: "museum" },
+//       { name: "Canals", type: "nature" },
+//     ],
+//     tags: ["culture", "relax"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Dmytro", age: 31 },
+//       { name: "Svitlana", age: 30 },
+//     ],
+//     budget: { total: 1400, currency: "EUR" },
+//   },
+//   {
+//     title: "Prague Old Town",
+//     destination: { country: "Czech Republic", city: "Prague" },
+//     durationDays: 4,
+//     guide: { name: "Jan Novak", experience: 7, language: "Czech" },
+//     rating: 4.6,
+//     places: [
+//       { name: "Charles Bridge", type: "landmark" },
+//       { name: "Old Town Square", type: "historical" },
+//     ],
+//     tags: ["europe", "history"],
+//     isCompleted: true,
+//     travelers: [{ name: "Olha", age: 27 }],
+//     budget: { total: 1000, currency: "EUR" },
+//   },
+//   {
+//     title: "Vienna Culture Trip",
+//     destination: { country: "Austria", city: "Vienna" },
+//     durationDays: 3,
+//     guide: { name: "Lukas Steiner", experience: 9, language: "German" },
+//     rating: 4.7,
+//     places: [
+//       { name: "Schonbrunn Palace", type: "landmark" },
+//       { name: "Opera House", type: "culture" },
+//     ],
+//     tags: ["music", "culture"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Ivan", age: 33 },
+//       { name: "Nina", age: 29 },
+//     ],
+//     budget: { total: 1600, currency: "EUR" },
+//   },
+//   {
+//     title: "Budapest Relax",
+//     destination: { country: "Hungary", city: "Budapest" },
+//     durationDays: 4,
+//     guide: { name: "Peter Horvath", experience: 6, language: "Hungarian" },
+//     rating: 4.5,
+//     places: [
+//       { name: "Thermal Baths", type: "relax" },
+//       { name: "Parliament", type: "landmark" },
+//     ],
+//     tags: ["relax", "spa"],
+//     isCompleted: true,
+//     travelers: [{ name: "Kateryna", age: 34 }],
+//     budget: { total: 1100, currency: "EUR" },
+//   },
+//   {
+//     title: "Lisbon Adventure",
+//     destination: { country: "Portugal", city: "Lisbon" },
+//     durationDays: 5,
+//     guide: { name: "Joao Silva", experience: 5, language: "Portuguese" },
+//     rating: 4.6,
+//     places: [
+//       { name: "Belem Tower", type: "landmark" },
+//       { name: "Oceanarium", type: "museum" },
+//     ],
+//     tags: ["sea", "sun"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Roman", age: 36 },
+//       { name: "Alina", age: 32 },
+//     ],
+//     budget: { total: 1700, currency: "EUR" },
+//   },
+//   {
+//     title: "London Explorer",
+//     destination: { country: "UK", city: "London" },
+//     durationDays: 4,
+//     guide: { name: "James Brown", experience: 12, language: "English" },
+//     rating: 4.8,
+//     places: [
+//       { name: "Big Ben", type: "landmark" },
+//       { name: "British Museum", type: "museum" },
+//     ],
+//     tags: ["city", "culture"],
+//     isCompleted: true,
+//     travelers: [{ name: "Serhii", age: 38 }],
+//     budget: { total: 2200, currency: "GBP" },
+//   },
+//   {
+//     title: "Oslo Nature Trip",
+//     destination: { country: "Norway", city: "Oslo" },
+//     durationDays: 6,
+//     guide: { name: "Erik Larsen", experience: 8, language: "Norwegian" },
+//     rating: 4.7,
+//     places: [
+//       { name: "Fjords", type: "nature" },
+//       { name: "Viking Museum", type: "museum" },
+//     ],
+//     tags: ["nature", "cold"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Taras", age: 41 },
+//       { name: "Oksana", age: 39 },
+//     ],
+//     budget: { total: 2500, currency: "EUR" },
+//   },
+//   {
+//     title: "Athens History Tour",
+//     destination: { country: "Greece", city: "Athens" },
+//     durationDays: 4,
+//     guide: { name: "Nikos Papas", experience: 9, language: "Greek" },
+//     rating: 4.6,
+//     places: [
+//       { name: "Acropolis", type: "landmark" },
+//       { name: "Agora", type: "historical" },
+//     ],
+//     tags: ["history", "sun"],
+//     isCompleted: true,
+//     travelers: [{ name: "Lena", age: 28 }],
+//     budget: { total: 1300, currency: "EUR" },
+//   },
+//   {
+//     title: "Stockholm Islands",
+//     destination: { country: "Sweden", city: "Stockholm" },
+//     durationDays: 5,
+//     guide: { name: "Anna Berg", experience: 7, language: "Swedish" },
+//     rating: 4.5,
+//     places: [
+//       { name: "Archipelago", type: "nature" },
+//       { name: "Vasa Museum", type: "museum" },
+//     ],
+//     tags: ["nature", "islands"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Denys", age: 37 },
+//       { name: "Iryna", age: 35 },
+//     ],
+//     budget: { total: 2100, currency: "EUR" },
+//   },
+//   {
+//     title: "Zurich Luxury Stay",
+//     destination: { country: "Switzerland", city: "Zurich" },
+//     durationDays: 3,
+//     guide: { name: "Luca Meier", experience: 11, language: "German" },
+//     rating: 4.9,
+//     places: [
+//       { name: "Lake Zurich", type: "nature" },
+//       { name: "Old Town", type: "historical" },
+//     ],
+//     tags: ["luxury", "relax"],
+//     isCompleted: true,
+//     travelers: [{ name: "Viktor", age: 45 }],
+//     budget: { total: 3000, currency: "CHF" },
+//   },
+//   {
+//     title: "Istanbul Mix",
+//     destination: { country: "Turkey", city: "Istanbul" },
+//     durationDays: 5,
+//     guide: { name: "Ahmet Kaya", experience: 6, language: "Turkish" },
+//     rating: 4.7,
+//     places: [
+//       { name: "Hagia Sophia", type: "landmark" },
+//       { name: "Grand Bazaar", type: "market" },
+//     ],
+//     tags: ["culture", "food"],
+//     isCompleted: false,
+//     travelers: [
+//       { name: "Yulia", age: 29 },
+//       { name: "Artem", age: 31 },
+//     ],
+//     budget: { total: 1400, currency: "USD" },
+//   },
+// ]);

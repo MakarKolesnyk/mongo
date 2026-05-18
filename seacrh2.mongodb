@@ -1,0 +1,21 @@
+use("mongo_1");
+
+// db.games.find({ genre: { $nin: ["souls", 'open-world'] } });
+// db.games.find({ platforms: { $nin: ["Xbox", 'Mobile'] } });
+// db.games.find({ platforms: { $size: 3 } });
+// db.games.find({ genre: { $exists: false } });\
+
+// db.movies.find({
+//   "mainActors.name": { $all: ["Leonardo DiCaprio", "Elliot Page"] },
+// });
+    // db.movies.find({
+    //   $and: [
+    //     { "director.age": { $gt: 70 } },
+    //     { "director.nationality": "American" },
+    //   ],
+    // });
+// db.movies.find({ genres: { $all: ["Drama", "Adventure"] } });
+// db.movies.find({ genres: { $nin: ["Drama", "Action", "Adventure"] } });
+// db.movies.find({'genres.1': {$exists: false}})
+// db.movies.find({'genres.2': {$exists: true}})
+// db.movies.find({'mainActors.name': 'Leonardo DiCaprio'})

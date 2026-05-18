@@ -1,0 +1,10 @@
+use("mongo_1");
+
+db.students.insertOne({
+  fullName: "Bob Pitt",
+  age: 18,
+  subjects: ["math", "chemestry"],
+  isOnline: true,
+  modul: 5,
+  createdAt: new Date(),
+});

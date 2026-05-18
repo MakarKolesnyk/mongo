@@ -1,0 +1,114 @@
+use("mongo_1");
+// db.users.insertOne({ login: "bred" });
+// db.users.drop();
+
+db.games.insertOne({
+  title: "Elden Ring 3 ",
+  relese: 2024,
+  Platform: ["PC", "PS"],
+  developer: {
+    country: undefined,
+    name: "Company",
+  },
+});
+
+// db.games.insertMany([
+//   {
+//     title: "The Witcher 3: Wild Hunt",
+//     genre: ["RPG", "Adventure"],
+//     platforms: ["PC", "PS4", "Xbox One", "Switch"],
+//     releaseYear: 2015,
+//     rating: 9.8,
+//     developer: "CD Projekt Red",
+//     multiplayer: false,
+//   },
+//   {
+//     title: "Minecraft",
+//     genre: ["Sandbox", "Survival"],
+//     platforms: ["PC", "Mobile", "PS4", "Xbox One", "Switch"],
+//     releaseYear: 2011,
+//     rating: 9.5,
+//     developer: "Mojang",
+//     multiplayer: true,
+//   },
+//   {
+//     title: "Counter-Strike 2",
+//     genre: ["Shooter", "FPS"],
+//     platforms: ["PC"],
+//     releaseYear: 2023,
+//     rating: 8.7,
+//     developer: "Valve",
+//     multiplayer: true,
+//   },
+//   {
+//     title: "Cyberpunk 2077",
+//     genre: ["RPG", "Open World"],
+//     platforms: ["PC", "PS5", "Xbox Series X"],
+//     releaseYear: 2020,
+//     rating: 8.5,
+//     developer: "CD Projekt Red",
+//     multiplayer: false,
+//   },
+//   {
+//     title: "Fortnite",
+//     genre: ["Battle Royale", "Shooter"],
+//     platforms: ["PC", "Mobile", "PS5", "Xbox Series X"],
+//     releaseYear: 2017,
+//     rating: 8.9,
+//     developer: "Epic Games",
+//     multiplayer: true,
+//   },
+// ]);
+
+// db.games.insertMany([
+//   {
+//     title: "Sekiro: Shadows Die Twice",
+//     genre: ["Action", "Adventure"],
+//     platforms: ["PC", "PS4", "Xbox One"],
+//     releaseYear: 2019,
+//     rating: 9.4,
+//     developer: "FromSoftware",
+//     country: "Japan",
+//     multiplayer: false,
+//   },
+//   {
+//     title: "Grand Theft Auto V",
+//     genre: ["Action", "Open World"],
+//     platforms: ["PC", "PS5", "Xbox Series X"],
+//     releaseYear: 2013,
+//     rating: 9.7,
+//     developer: "Rockstar Games",
+//     country: "USA",
+//     multiplayer: true,
+//   },
+//   {
+//     title: "The Witcher 3: Wild Hunt",
+//     genre: ["RPG", "Adventure"],
+//     platforms: ["PC", "PS4", "Xbox One", "Switch"],
+//     releaseYear: 2015,
+//     rating: 9.8,
+//     developer: "CD Projekt Red",
+//     country: "Poland",
+//     multiplayer: false,
+//   },
+//   {
+//     title: "Assassin’s Creed Valhalla",
+//     genre: ["RPG", "Action"],
+//     platforms: ["PC", "PS5", "Xbox Series X"],
+//     releaseYear: 2020,
+//     rating: 8.6,
+//     developer: "Ubisoft",
+//     country: "France",
+//     multiplayer: false,
+//   },
+//   {
+//     title: "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+//     genre: ["Shooter", "Survival"],
+//     platforms: ["PC", "Xbox Series X"],
+//     releaseYear: 2024,
+//     rating: 8.8,
+//     developer: "GSC Game World",
+//     country: "Ukraine",
+//     multiplayer: false,
+//   },
+// ]);

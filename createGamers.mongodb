@@ -1,0 +1,23 @@
+use("mongo_1");
+
+// db.gamers.insertMany([
+//   {
+//     login: "BOB",
+//     favoriteGames: "Minecraft",
+//     level: 24,
+//   },
+//   {
+//     login: "BOB",
+//     favoriteGames: "Dota",
+//     level: 50,
+//   },
+//   {
+//     login: "BOB",
+//     favoriteGames: "cs2",
+//     level: 54,
+//   },
+// ]);
+
+db.gamers.find({
+  $or: [{ level: 50 }, { favoriteGames: "Minecraft" }],
+});

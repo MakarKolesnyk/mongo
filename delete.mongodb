@@ -1,0 +1,24 @@
+use("mongo_1");
+
+db.games.find();
+// db.games.deleteOne({ title: "Minecraft" });
+// db.games.findOneAndDelete({ title: "Fortnite" });
+// db.games.findOneAndDelete({}, { sort: { release: -1 } });
+
+// db.games.findOneAndDelete({ country: "Japan" }, { sort: { release: -1 } });
+// db.games.findOneAndDelete(
+//   { genre: "RPG2" },
+//   {
+//     sort: { rating: -1 },
+//   },
+// );
+// db.games.deleteMany({
+//   $and: [
+//     { rating: { $exists: true } },
+//     { release: { $gte: 2010, $lte: 2015 } },
+//   ],
+// });
+
+// db.games.deleteMany({
+//   $and: [{ isChildren: true }, { "developer.country": { $ne: "Australia" } }],
+// });

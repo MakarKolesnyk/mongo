@@ -1,0 +1,13 @@
+use("mongo_1");
+
+// db.games.find({ title: { $regex: "W", $options: "i" } });
+
+// db.games.find({ title: { $regex: "^S" } });
+
+// db.games.find({ title: { $regex: "e$", $options: "i" } });
+
+// db.movies.find({ title: { $regex: "In" } });
+// db.movies.find({ "mainActors.name": { $regex: "^Tom", $options: "i" } });
+// db.movies.find({"mainActors.name": {$regex: 'on$', $options: 'i'}})
+// db.movies.find({ "director.nationality": { $regex: "^B", $options: "i" } });
+db.movies.find({ title: { $regex: "The", $options: "i" } });
