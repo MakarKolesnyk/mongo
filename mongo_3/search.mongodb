@@ -1,0 +1,131 @@
+use("mongo_3");
+
+db.games.aggregate([
+  {
+    $lookup: {
+      from: "developers",
+      localField: "developId",
+      foreignField: "_id",
+      as: "developer",
+    },
+  },
+  {
+    $unwind: "$developer",
+  },
+  {
+    $match: {
+      "developer.country": { $in: ["Poland", "Ukraine"] },
+    },
+  },
+  {
+    $project: {
+      _id: 0,
+      title: 1,
+      country: "$developer.country",
+    },
+  },
+]);
+
+// db.users.aggregate([
+//   {
+//     $lookup: {
+//       from: "games",
+//       localField: "favoiteGames",
+//       foreignField: "_id",
+//       as: "favorGames",
+//     },
+//   },
+//   {
+//     $match: {
+//       "favorGames.genre": "RPG",
+//     },
+//   },
+//   {
+//     $project: {
+//       _id: 0,
+//       login: 1,
+//       titleGame: "$favorGames.title",
+//     },
+//   },
+// ]);
+
+// db.users.aggregate([
+//   {
+//     $group: {
+//       _id: "$isMale",
+//       countUser: { $sum: 1 },
+//     },
+//   },
+// ]);
+
+// db.users.aggregate([
+//   {
+//     $group: {
+//       _id: "$isMale",
+//       avgDbYear: { $avg: "$bdYear" },
+//     },
+//   },
+// ]);
+
+// db.games.aggregate([
+//     {
+//         $group: {
+//           _id: null,
+//           avgYear: {$avg: '$releaseYear'}
+//         }
+//     }
+// ])
+
+// db.games.aggregate([
+//   {
+//     $group: {
+//       _id: "$genre",
+//       countGames: { $sum: 1 },
+//     },
+//   },
+// ]);
+
+// db.developers.aggregate([
+//   {
+//     $group: {
+//       _id: "$country",
+//       allCountry: { $sum: 1 },
+//     },
+//   },
+// ]);
+
+// db.games.find().sort({ releaseYear: 1 }).limit(1);
+// db.users.find().sort({ dbYear: -1 }).limit(2);
+
+// db.users.find({
+//   "favoiteGames.1": { $exists: true },
+// });
+
+// const developer = db.developers.findOne({ title: "Nintendo" });
+// db.games.find({ developId: developer._id });
+
+// db.games.distinct('genre')
+
+// db.developers.distinct("country");
+
+// db.developers.find()
+
+// db.developers.find({
+//   country: "Japan",
+// });
+
+// db.developers.aggregate([
+//   {
+//     $match: {
+//       country: "Japan",
+//     },
+//   },
+// ]);
+
+// db.games.find({
+//   releaseYear: { $gt: 2013 },
+// });
+
+// db.games.countDocuments()
+
+// db.users.countDocuments()

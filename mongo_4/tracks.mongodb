@@ -1,0 +1,70 @@
+use("mongo_4");
+
+db.tracks.drop()
+
+db.createCollection("tracks ", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["title", "genre", "releaseYear", "duration", "artistId"],
+      properties: {
+        title: {
+          bsonType: "string",
+          minLength: 2,
+          maxLength: 255,
+          description: "title",
+        },
+        genre: {
+          bsonType: "string",
+          enum: ["pop", "hip-hop", "rock", "electronic", "indie"],
+        },
+        releaseYear: {
+          bsonType: "int",
+          minimum: 1900,
+          maximum: new Date().getFullYear(),
+        },
+        duration: {
+          bsonType: "int",
+          minimum: 30,
+          maximum: 900,
+        },
+        artistId: {
+          bsonType: "objectId",
+        },
+      },
+    },
+  },
+});
+
+db.tracks.createIndex({ title: 1 }, { unique: true });
+
+db.tracks.insertMany([
+  {
+    title: "Moves Like Jagger",
+    genre: "pop",
+    releaseYear: 2024,
+    duration: 550,
+    artistId: ObjectId("6a143e7324f84da09debbff2"),
+  },
+  {
+    title: "Like you",
+    genre: "pop",
+    releaseYear: 2020,
+    duration: 300,
+    artistId: ObjectId("6a143e7324f84da09debbff2"),
+  },
+  {
+    title: "Касета",
+    genre: "pop",
+    releaseYear: 2025,
+    duration: 450,
+    artistId: ObjectId("6a143e7324f84da09debbff5"),
+  },
+  {
+    title: "Levitating",
+    genre: "indie",
+    releaseYear: 2023,
+    duration: 289,
+    artistId: ObjectId("6a143e7324f84da09debbff5"),
+  },
+]);

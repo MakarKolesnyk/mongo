@@ -1,0 +1,39 @@
+use("mongo_3");
+
+// db.createCollection("developers", {
+//   validator: {
+//     $jsonSchema: {
+//       bsonType: "object",
+//       required: ["title", "country"],
+//       properties: {
+//         title: {
+//           bsonType: "string",
+//           minLength: 3,
+//           maxLength: 255,
+//           descrption: "Title must be uniq and have 3-255",
+//         },
+//         country: {
+//           bsonType: "string",
+//           enum: ["USA", "Ukraine", "Japan", "Poland"],
+//           description: "Country can be USA, Ukraine, Japana",
+//         },
+//       },
+//     },
+//   },
+// });
+
+// db.developers.createIndex({ title: 1 }, { unique: true });
+// db.developers.insertOne({
+//   title: "Rockstar Games",
+//   country: "USA",
+// });
+
+// db.developers.insertMany([
+//   { title: "CD Projekt Red", country: "Poland" },
+//   { title: "Nintendo", country: "Japan" },
+//   { title: "Konami", country: "Japan" },
+//   { title: "SEGA", country: "Japan" },
+//   { title: "GSC Game World", country: "Ukraine" },
+// ]);
+
+db.developers.find()

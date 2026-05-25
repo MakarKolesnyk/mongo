@@ -1,0 +1,110 @@
+use("mongo_3");
+
+// db.createCollection("games", {
+//   validator: {
+//     $jsonSchema: {
+//       bsonType: "object",
+//       required: ["title", "genre", "releaseYear", "developId"],
+//       properties: {
+//         title: {
+//           bsonType: "string",
+//           minLength: 3,
+//           maxLength: 255,
+//           description: "Title must be 3-255 characters",
+//         },
+//         genre: {
+//           bsonType: "string",
+//           enum: ["RPG", "open-world", "sandbox", "metroidvania"],
+//           description: "Must be RPG, open-world, sandbox, or metroidvania",
+//         },
+//         releaseYear: {
+//           bsonType: ["int", "double"],
+//           minimum: 1962,
+//           maximum: 2026,
+//         },
+//         developId: {
+//           bsonType: "objectId",
+//         },
+//       },
+//     },
+//   },
+// });
+
+// db.games.createIndex({ title: 1 }, { unique: true });
+
+// db.games.insertMany([
+//   {
+//     title: "The Witcher 3: Wild Hunt",
+//     genre: "RPG",
+//     releaseYear: 2015,
+//     developId: ObjectId("6a12565be9a6f27168764ce1"),
+//   },
+//   {
+//     title: "Cyberpunk 2077",
+//     genre: "RPG",
+//     releaseYear: 2020,
+//     developId: ObjectId("6a12565be9a6f27168764ce1"),
+//   },
+//   {
+//     title: "The Witcher 2: Assassins of Kings",
+//     genre: "RPG",
+//     releaseYear: 2011,
+//     developId: ObjectId("6a12565be9a6f27168764ce1"),
+//   },
+//   {
+//     title: "Pokémon Red & Blue",
+//     genre: "RPG",
+//     releaseYear: 1996,
+//     developId: ObjectId("6a12565be9a6f27168764ce2"),
+//   },
+//   {
+//     title: "Metroid",
+//     genre: "metroidvania",
+//     releaseYear: 1986,
+//     developId: ObjectId("6a12565be9a6f27168764ce2"),
+//   },
+//   {
+//     title: "The Legend of Zelda: Tears of the Kingdom",
+//     genre: "open-world",
+//     releaseYear: 2023,
+//     developId: ObjectId("6a12565be9a6f27168764ce2"),
+//   },
+//   {
+//     title: "Grand Theft Auto III",
+//     genre: "open-world",
+//     releaseYear: 2001,
+//     developId: ObjectId("6a1254db9a9e03d903513dc1"),
+//   },
+//   {
+//     title: "Grand Theft Auto IV",
+//     genre: "open-world",
+//     releaseYear: 2008,
+//     developId: ObjectId("6a1254db9a9e03d903513dc1"),
+//   },
+//   {
+//     title: "Castlevania: Symphony of the Night",
+//     genre: "metroidvania",
+//     releaseYear: 1997,
+//     developId: ObjectId("6a12565be9a6f27168764ce3"),
+//   },
+//   {
+//     title: "Castlevania: Aria of Sorrow",
+//     genre: "RPG",
+//     releaseYear: 2003,
+//     developId: ObjectId("6a12565be9a6f27168764ce3"),
+//   },
+//   {
+//     title: "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+//     genre: "sandbox",
+//     releaseYear: 2007,
+//     developId: ObjectId("6a12565be9a6f27168764ce5"),
+//   },
+//   {
+//     title: "S.T.A.L.K.E.R. 2: Heart of Chornobyl",
+//     genre: "sandbox",
+//     releaseYear: 2024,
+//     developId: ObjectId("6a12565be9a6f27168764ce5"),
+//   }
+// ]);
+
+db.games.find()

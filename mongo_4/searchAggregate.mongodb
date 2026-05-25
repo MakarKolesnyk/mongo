@@ -1,0 +1,75 @@
+use("mongo_4");
+
+db.tracks.aggregate([
+  {
+    $match: {
+      releaseYear: { $gt: 2022 },
+    },
+  },
+  {
+    $group: {
+      _id: "$artistId",
+      tracks: {
+        $push: "$title",
+      },
+    },
+  },
+  {
+    $lookup: {
+      from: "artists",
+      localField: "_id",
+      foreignField: "_id",
+      as: "artist",
+    },
+  },
+  {
+    $unwind: "$artist",
+  },
+  {
+    $project: {
+      _id: 0,
+      tracks: 1,
+      name: "$artist.name",
+    },
+  },
+]);
+
+// db.artists.aggregate([
+//   {
+//     $lookup: {
+//       from: "tracks",
+//       localField: "_id",
+//       foreignField: "artistId",
+//       as: "tracks",
+//     },
+//   },
+//   {
+//     $project: {
+//       _id: 0,
+//       name: 1,
+//       tracksCount: { $size: "$tracks" },
+//     },
+//   },
+// ]);
+
+// db.users.aggregate([
+//   {
+//     $lookup: {
+//       from: "tracks",
+//       localField: "favoiteTracks",
+//       foreignField: "_id",
+//       as: "tracks",
+//     },
+//   },
+//   {
+//     $match: {
+//       "tracks.genre": "indie",
+//     },
+//   },
+//   {
+//     $project: {
+//       _id: 0,
+//       login: 1,
+//     }
+//   }
+// ]);

@@ -1,0 +1,3 @@
+'Laptops': ObjectId('6a0ce1eae8633d511bccb3d2'),
+    'Phones': ObjectId('6a0ce1eae8633d511bccb3d3'),
+    'Tablets': ObjectId('6a0ce1eae8633d511bccb3d4')

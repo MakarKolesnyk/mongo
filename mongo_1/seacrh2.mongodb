@@ -19,3 +19,5 @@ use("mongo_1");
 // db.movies.find({'genres.1': {$exists: false}})
 // db.movies.find({'genres.2': {$exists: true}})
 // db.movies.find({'mainActors.name': 'Leonardo DiCaprio'})
+
+db.games.find()

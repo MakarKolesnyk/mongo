@@ -1,0 +1,54 @@
+use("mongo_3");
+
+// db.createCollection("uesrs", {
+//   validator: {
+//     $jsonSchema: {
+//       bsonType: "object",
+//       required: ["login", "bdYear", "isMale", "favoiteGames"],
+//       properties: {
+//         login: {
+//           bsonType: "string",
+//           pattern: "^[a-zA-Z0-9]{3,64}$",
+//         },
+//         bdYear: {
+//           bsonType: "int",
+//           minimum: 1926,
+//           maximum: new Date().getFullYear() - 12,
+//         },
+//         isMale: {
+//           bsonType: "bool",
+//         },
+//         favoiteGames: {
+//           bsonType: "array",
+//           minItems: 1,
+//           items: {
+//             bsonType: "objectId",
+//           },
+//         },
+//       },
+//     },
+//   },
+// });
+
+// db.users.createIndex({ login: 1 }, { unique: true });
+
+db.users.insertMany([
+  {
+    login: "Tom22",
+    bdYear: 1999,
+    isMale: true,
+    favoiteGames: [
+      ObjectId("6a125db2631b66a1cde86e73"),
+      ObjectId("6a125db2631b66a1cde86e77"),
+    ],
+  },
+  {
+    login: "Jesica",
+    bdYear: 2000,
+    isMale: false,
+    favoiteGames: [
+      ObjectId("6a125db2631b66a1cde86e76"),
+      ObjectId("6a125db2631b66a1cde86e71"),
+    ],
+  },
+]);

@@ -18,6 +18,8 @@ use("mongo_1");
 //   },
 // ]);
 
-db.gamers.find({
-  $or: [{ level: 50 }, { favoriteGames: "Minecraft" }],
-});
+// db.gamers.find({
+//   $or: [{ level: 50 }, { favoriteGames: "Minecraft" }],
+// });
+
+db.games.find();

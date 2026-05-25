@@ -1,0 +1,39 @@
+use("mongo_4");
+
+db.artists.drop();
+
+db.createCollection("artists", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["name", "country", "countMonthListeners"],
+      properties: {
+        name: {
+          bsonType: "string",
+          minLength: 2,
+          maxLength: 255,
+          description: "name",
+        },
+        country: {
+          bsonType: "string",
+          enum: ["USA", "Ukraine", "South Korea", "Canada", "United Kingdom"],
+          description: "country",
+        },
+        countMonthListeners: {
+          bsonType: "int",
+          minimum: 0,
+          description: "count",
+        },
+      },
+    },
+  },
+});
+
+db.artists.createIndex({ name: 1 }, { unique: true });
+
+db.artists.insertMany([
+  { name: "Maron", country: "USA", countMonthListeners: 1400000 },
+  { name: "Sadsvit", country: "Ukraine", countMonthListeners: 1000000 },
+  { name: "The Weeknd", country: "Canada", countMonthListeners: 900000 },
+  { name: "Dua Lipa", country: "United Kingdom", countMonthListeners: 6100000 },
+]);

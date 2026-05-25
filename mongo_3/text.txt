@@ -1,0 +1,30 @@
+{
+  _id: ObjectId('6a1254db9a9e03d903513dc1'),
+  title: 'Rockstar Games',
+  country: 'USA'
+}
+{
+  _id: ObjectId('6a12565be9a6f27168764ce1'),
+  title: 'CD Projekt Red',
+  country: 'Poland'
+}
+{
+  _id: ObjectId('6a12565be9a6f27168764ce2'),
+  title: 'Nintendo',
+  country: 'Japan'
+}
+{
+  _id: ObjectId('6a12565be9a6f27168764ce3'),
+  title: 'Konami',
+  country: 'Japan'
+}
+{
+  _id: ObjectId('6a12565be9a6f27168764ce4'),
+  title: 'SEGA',
+  country: 'Japan'
+}
+{
+  _id: ObjectId('6a12565be9a6f27168764ce5'),
+  title: 'GSC Game World',
+  country: 'Ukraine'
+}

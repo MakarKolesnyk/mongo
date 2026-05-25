@@ -1,0 +1,21 @@
+use("mongo_2");
+
+db.products.updateMany(
+  { categoryId: ObjectId("6a0ce1eae8633d511bccb3d2") },
+  { $inc: { price: -1500 } },
+);
+
+// db.products.updateMany(
+//   { categoryId: ObjectId("6a0ce1eae8633d511bccb3d2") },
+//   { $mul: { price: 2 } },
+// );
+
+// db.products
+//   .find({ categoryId: ObjectId("6a0ce1eae8633d511bccb3d3") })
+//   .sort({ price: -1 })
+//   .limit(1);
+
+// db.products
+// .find({ categoryId: ObjectId("6a0ce1eae8633d511bccb3d4") })
+// .sort({ price: 1 })
+// .limit(1);
